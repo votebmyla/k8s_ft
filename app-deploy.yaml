@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: application
+  labels:
+    name: application
 spec:
   replicas: 1
   selector:
@@ -23,7 +25,7 @@ spec:
             - "until nslookup mongo-0.mongo.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for mydb; sleep 2; done"
       containers:
         - name: application
-          image: rinatalimbetov/ralimbetov-application
+          image: rinatalimbetov/ralimbetov_application
           ports:
             - containerPort: 5000
           livenessProbe:
