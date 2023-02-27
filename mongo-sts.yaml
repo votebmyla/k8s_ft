@@ -44,7 +44,7 @@ spec:
               mountPath: /usr/share/nginx/html
   volumeClaimTemplates:
     - metadata:
-        name: www
+        name: mongo-pv
       spec:
         accessModes: ["ReadWriteOnce"]
         resources:
