@@ -40,11 +40,11 @@ spec:
               memory: "256Mi"
               cpu: "500m"
           volumeMounts:
-            - name: www
+            - name: mongo-pvc
               mountPath: /usr/share/nginx/html
   volumeClaimTemplates:
     - metadata:
-        name: mongo-pv
+        name: mongo-pvc
       spec:
         accessModes: ["ReadWriteOnce"]
         resources:
